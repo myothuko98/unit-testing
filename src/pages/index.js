@@ -1,6 +1,9 @@
+import UserProfile from '@/components/UserProfile';
 import Head from 'next/head';
+import { useState } from 'react';
 
 export default function Home() {
+  const [showText, setShowText] = useState(false);
   return (
     <>
       <Head>
@@ -20,6 +23,28 @@ export default function Home() {
           <label htmlFor="specificText">Enter Some Specific Text: </label>
           <input type="text" id="specificText" />
         </div>
+        <div>
+          <input value="hello" onChange={(e) => console.log(e.target.value)} />
+        </div>
+        <div>
+          {showText && <span>Testing Text</span>}
+          <button
+            onClick={() =>
+              setTimeout(() => {
+                setShowText((text) => !text);
+              }, 1000)
+            }
+          >
+            Show Text
+          </button>
+        </div>
+
+        <UserProfile
+          displayName="John Doe"
+          emailAddress="johndoe@gmail.com"
+          username="johndoe"
+          isEmailVerified={true}
+        />
       </main>
     </>
   );
