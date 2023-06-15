@@ -1,3 +1,4 @@
+import LoginForm from '@/components/LoginForm';
 import UserProfile from '@/components/UserProfile';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -45,6 +46,8 @@ export default function Home() {
           username="johndoe"
           isEmailVerified={true}
         />
+
+        <LoginForm />
       </main>
     </>
   );
